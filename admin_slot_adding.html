@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin_Slot_Adding</title>
+    <link
+    
+    />
+
+    <style>
+        .Selector{
+            height: 50px;
+            width: 150px;
+            justify-content: center;
+        }
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      table,
+      form {
+        width: 500px;
+        margin: 20px auto;
+      }
+      table {
+        border-collapse: collapse;
+        text-align: center;
+      }
+      table td,
+      table th {
+        border: solid 1px black;
+      }
+      label,
+      input {
+        display: block;
+        margin: 10px 0;
+        font-size: 20px;
+      }
+      button {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Select the Courts </h1>
+    <form>
+
+        <!----->
+        <select  class="Selector"  id="select_courts" required>
+          <option >choose a court</option>
+            <option value="Court-1">Court-1</option>
+            <option value="Court-2">Court-2</option>
+            <option value="Court-1">Court-3</option>
+            <option value="Court-2">Court-4</option>
+            <option value="Court-1">Court-5</option>
+            <option value="Court-2">Court-6</option>
+            <option value="Court-1">Court-7</option>
+            <option value="Court-2">Court-8</option>
+            <option value="Court-1">Court-9</option>
+            <option value="Court-2">Court-10</option>
+            <option value="Court-1">Court-11</option>
+            <option value="Court-2">Court-12</option>
+        </select>
+        
+        <!---->
+
+      <div class="input-row">
+        <label for="time"></label>
+        <input type="hidden" name="time" id="time" />
+        
+      </div>
+      <div class="input-row">
+        <label for="price_hr">price/hour</label>
+        <input type="text" name="price_hr" id="price_hr_id" required />
+      </div>
+
+      <input type="file"name="iamge" id="image" />
+
+      <button id="btnGetCount" value="Count Rows" onclick = "CountRows()" >Submit</button>
+      <input type="reset" value="reset" id="resetbtn">
+    </form>
+    <table   id="tblCustomers">
+      <thead>
+        <tr id='0'>   
+          <th style="background-color: antiquewhite;  width: 100px;">Courts</th>
+          <th style="background-color: antiquewhite;  width: 100px;height: auto;">Time</th>  
+          <th>Cost/Hour</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+        
+      
+        
+
+
+      const formEl = document.querySelector("form");
+      const tbodyEl = document.querySelector("tbody");
+      const tableEl = document.querySelector("table");
+      
+      function onAddWebsite(e) {
+        e.preventDefault();
+        var d=document.getElementById("select_courts").value;
+        console.log(d);
+
+        const Fprice_hr = document.getElementById("price_hr_id").value;
+        console.log(Fprice_hr);
+  
+        const time = document.getElementById("time").value;
+     
+        var img=document.getElementById("image").value;
+        console.log(img);
+
+        
+        var totalRowCount = 0;
+        var rowCount = 0;
+        var table = document.getElementById("tblCustomers");
+        var rows = table.getElementsByTagName("tr")
+        for (var i = 0; i < rows.length; i++) {
+            totalRowCount++;
+            if (totalRowCount>0) {
+                rowCount++;
+                document.getElementById("btnGetCount").disabled=true;
+            }
+        }
+
+
+        
+        tbodyEl.innerHTML += `
+            <tr >
+                <td style="background-color: antiquewhite;  width: auto;">${d}</td>
+                <td  style="background-color: antiquewhite; ">${time}
+                             <button onclick="C_Btn78A()" class="C_Btn78A" style="border-radius: 50px;height: 30px ;width: 150px  ;">7:00-8:00Am</button>
+                             <button onclick="C_Btn89A()" class="C_Btn89A" style="border-radius: 50px;height: 30px ;width: 150px  ;">8:00-9:00Am</button>
+                             <button onclick="C_Btn910A()" class="C_Btn910A" style="border-radius: 50px;height: 30px ;width: 150px  ;">9:00-10:00Am</button>
+                             <button onclick="C_Btn1011A()" class="C_Btn1011A" style="border-radius: 50px;height: 30px ;width: 150px  ;">10:00-11:00Am</button>
+                             <button onclick="C_Btn11A12P()" class="C_Btn11A12P" style="border-radius: 50px;height: 30px ;width: 150px  ;">11:00AM-12:00pm</button>
+                             <button onclick="C_Btn121P()" class="C_Btn121P" style="border-radius: 50px;height: 30px ;width: 150px  ;">12:00-1:00pm</button>
+                             <button onclick="C_Btn12P()" class="C_Btn12P" style="border-radius: 50px;height: 30px ;width: 150px  ;">1:00-2:00pm</button>
+                             <button onclick="C_Btn23P()" class="C_Btn23P" style="border-radius: 50px;height: 30px ;width: 150px  ;">2:00-3:00pm</button>
+                             <button onclick="C_Btn34P()" class="C_Btn34P" style="border-radius: 50px;height: 30px ;width: 150px  ;">3:00-4:00pm</button>
+                             <button onclick="C_Btn45P()" class="C_Btn45P" style="border-radius: 50px;height: 30px ;width: 150px  ;">4:00-5:00pm</button>
+                             <button onclick="C_Btn56P()" class="C_Btn56P" style="border-radius: 50px;height: 30px ;width: 150px  ;">5:00-6:00pm</button>
+                             <button onclick="C_Btn67P()" class="C_Btn67P" style="border-radius: 50px;height: 30px ;width: 150px  ;">6:00-7:00pm</button>
+                             <button onclick="C_Btn78P()" class="C_Btn78P" style="border-radius: 50px;height: 30px ;width: 150px  ;">7:00-8:00pm</button>
+                             <button onclick="C_Btn89P()" class="C_Btn89P" style="border-radius: 50px;height: 30px ;width: 150px  ;">8:00-9:00pm</button>
+                             <button onclick="C_Btn910P()" class="C_Btn910P" style="border-radius: 50px;height: 30px ;width: 150px  ;">9:00-10:00pm</button>
+                             <button onclick="C_Btn1011P()" class="C_Btn1011P" style="border-radius: 50px;height: 30px ;width: 150px  ;">10:00-11:00pm</button>
+                             <button onclick="C_Btn11P12A()" class="C_Btn11P12A" style="border-radius: 50px;height: 30px ;width: 150px  ;">11:00pm-12:00AM</button></td>
+                             
+                <td>${Fprice_hr}</td>
+                <td>${image}</td>
+                <td><button class="deleteBtn" style="border-radius: 50px;height: 30px ;width: 150px;background-color: #FF0000">Delete</button></td>
+                <td><button class="FSubmitBtn"  style="border-radius: 50px;height: 30px ;width: 150px;background-color: #13FF00">Submit</button></td>
+            </tr>
+        `;
+      }
+
+     
+    //  for color in button
+
+    function C_Btn67A() { 
+    document.getElementsByClassName("C_Btn67A2")[0].style.backgroundColor = "#13FF00"; console.log("6:00AM-7:00AM")}
+    function C_Btn78A() { 
+    document.getElementsByClassName("C_Btn78A")[0].style.backgroundColor = "#13FF00"; console.log("7:00AM-8:00AM") }
+    function C_Btn89A() { 
+    document.getElementsByClassName("C_Btn89A")[0].style.backgroundColor = "#13FF00"; console.log("8:00-9:00AM")}
+    function C_Btn910A() { 
+    document.getElementsByClassName("C_Btn910A")[0].style.backgroundColor = "#13FF00"; console.log("9:00-10:00AM")}
+    function C_Btn1011A() { 
+    document.getElementsByClassName("C_Btn1011A")[0].style.backgroundColor = "#13FF00"; console.log("10:00-11:00AM")}
+    function C_Btn11A12P() { 
+    document.getElementsByClassName("C_Btn11A12P")[0].style.backgroundColor = "#13FF00"; console.log("11:00AM-12:00PM")}
+    function C_Btn121P() { 
+    document.getElementsByClassName("C_Btn121P")[0].style.backgroundColor = "#13FF00"; console.log("12:00PM-1:00PM")}
+    function C_Btn12P() { 
+    document.getElementsByClassName("C_Btn12P")[0].style.backgroundColor = "#13FF00";console.log("1:00PM-2:00PM") }
+    function C_Btn23P() { 
+    document.getElementsByClassName("C_Btn23P")[0].style.backgroundColor = "#13FF00"; console.log("2:00PM-3:00PM")}
+    function C_Btn34P() { 
+    document.getElementsByClassName("C_Btn34P")[0].style.backgroundColor = "#13FF00";console.log("3:00PM-4:00PM") }
+    function C_Btn45P() { 
+    document.getElementsByClassName("C_Btn45P")[0].style.backgroundColor = "#13FF00"; console.log("4:00PM-5:00PM")}
+    function C_Btn56P() { 
+    document.getElementsByClassName("C_Btn56P")[0].style.backgroundColor = "#13FF00"; console.log("5:00PM-6:00PM")}
+    function C_Btn67P() { 
+    document.getElementsByClassName("C_Btn67P")[0].style.backgroundColor = "#13FF00"; console.log("6:00PM-7:00PM") }
+    function C_Btn78P() { 
+    document.getElementsByClassName("C_Btn78P")[0].style.backgroundColor = "#13FF00"; console.log("7:00PM-8:00PM")}
+    function C_Btn89P() { 
+    document.getElementsByClassName("C_Btn89P")[0].style.backgroundColor = "#13FF00"; console.log("8:00PM-9:00PM") }
+    function C_Btn910P() { 
+    document.getElementsByClassName("C_Btn910P")[0].style.backgroundColor = "#13FF00"; console.log("9:00PM-10:00PM") }
+    function C_Btn1011P() { 
+    document.getElementsByClassName("C_Btn1011P")[0].style.backgroundColor = "#13FF00"; console.log("10:00PM-11:00PM")}
+    function C_Btn11P12A() { 
+    document.getElementsByClassName("C_Btn11P12A")[0].style.backgroundColor = "#13FF00"; console.log("11:00PM-12:00AM")}
+
+  
+
+      function onDeleteRow(e) {
+        if (!e.target.classList.contains("deleteBtn")) {
+          return;
+        }
+
+        const btn = e.target;
+        btn.closest("tr").remove();
+        document.getElementById("select_courts").disabled=false;
+        document.getElementById("price_hr_id").disabled=false;
+        document.getElementById("btnGetCount").disabled=false;
+        console.clear();
+        
+      }
+
+
+      function Fineshalll(e) {
+        if (!e.target.classList.contains("FSubmitBtn")) {
+          return;
+        }
+
+        const btn = e.target;
+        btn.closest("tr").remove();
+        document.getElementById("select_courts").disabled=false;
+        document.getElementById("price_hr_id").disabled=false;
+        document.getElementById("btnGetCount").disabled=false;
+        console.log("finesh court-------------")
+      }
+
+     
+     
+      
+      tableEl.addEventListener("click",Fineshalll);
+      formEl.addEventListener("submit", onAddWebsite);
+      tableEl.addEventListener("click", onDeleteRow);
+
+    
+    </script>
+  </body>
+</html>
